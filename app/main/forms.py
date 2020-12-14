@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, FileField, SubmitField
+from wtforms import StringField, TextAreaField, FileField, SubmitField,TextAreaField,BooleanField
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from wtforms.validators import Required
 
 
@@ -17,3 +18,8 @@ class BlogForm(FlaskForm):
 class UpdateProfile(FlaskForm):
     bio = TextAreaField('Tell us about you.',validators = [Required()])
     submit = SubmitField('Submit')    
+
+class PostForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
+    content = TextAreaField('Content', validators=[DataRequired()])
+    submit = SubmitField('Post')    
