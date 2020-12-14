@@ -1,62 +1,33 @@
-{% extends 'base.html'%}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <!-- Page Header -->
-    <header class="masthead" >
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-              <div class="site-heading">
-                <h1>Clean Blog</h1>
-                <span class="subheading">A Blog Theme by Start Bootstrap</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-  
-      <!-- Main Content -->
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-          {% for post in posts %}
-            <div class="post-preview">
-              <a href="{{ url_for('post', post_id=post.id) }}">
-                <h2 class="post-title">
-                  {{ post.title }}
-                </h2>
-                <h3 class="post-subtitle">
-                  {{ post.subtitle }}
-                </h3>
-              </a>
-              <p class="post-meta">Posted by {{ post.author }} on {{ post.date_posted.strftime('%B %d, %Y') }}</p>
-            </div>
-            {% endfor %}
-            <hr>
-          </div>
-        </div>
-      </div>
-  
-      <hr>
-  
-      <!-- Footer -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="valign-wrapper ba-jumbotron">
+    <div class="container center-align">
+        <h2>The Bloggers Blog App</h2>
+        <h4 class="grey-text">Enrich a Life!</h4>
+    </div>
+</div>
+<div class="container">
+    <h3 class="center">Latest Blogs</h3>
+    <hr>
+    <br>
+    <p class="center" style="font-size: 55px;">{{quote.quote}}</p>
+    <p class="center" style="font-size: 30px;"><strong>Author: </strong>{{quote.author}}</p>
+    <div class="row">
+      
+    </div>
+</div>
+
       <footer>
         <div class="container">
           <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-              <p class="copyright text-muted">Copyright &copy; Your Website 2017</p>
+              <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
             </div>
           </div>
         </div>
       </footer>
+      {% endblock %}
+
   
     
-    </body>
-</html>

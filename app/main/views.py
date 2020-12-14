@@ -4,13 +4,16 @@ from . import main
 from ..models import User
 from .. import db
 from datetime import datetime
+from ..requests import get_quote
 
 
 
 @main.route('/')
 def index():
-    tittle="welcome to blog"
-    return render_template("index.html")    
+    quote = get_quote()
+    
+    return render_template("index.html", quote=quote)
+  
 
 
 @main.route('/blogs')
