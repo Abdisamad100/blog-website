@@ -8,32 +8,36 @@ from datetime import datetime
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-
-
-class User(UserMixin,db.Model):
+class User(UserMixin, db.Model):
     __tablename__ = 'users'
-    id = db.Column(db.Integer,primary_key = True)
+
+    id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(255))
-    email = db.Column(db.String(255),unique = True,index = True)
-    pass_secure = db.Column(db.String(255))
-    blog = db.relationship('Opinion', backref='username', lazy='dynamic')
-    comments = db.relationship('Comment', backref='username', lazy=True)
+    email = db.Column(db.String(255), unique = True)
+    hash_pass = db.Column(db.String(255))
+    blogs = db.relationship('Blog', backref = 'user', lazy = "dynamic")
+    comments = db.relationship('Comment', backref = 'user', lazy = "dynamic")
+    bio = db.Column(db.String(255))
+    profile_pic_path = db.Column(db.String())
 
     @property
     def password(self):
-            raise AttributeError('You cannot read the password attribute')
+        raise AttributeError("You cannot read password attribute")
 
     @password.setter
-    def password(self, password):
-            self.pass_secure = generate_password_hash(password)
+    def password(self, pass_entry):
+        self.hash_pass = generate_password_hash(pass_entry)
 
+    def verify_password(self, pass_entry):
+        return check_password_hash(self.hash_pass, pass_entry)
 
-    def verify_password(self,password):
-            return check_password_hash(self.pass_secure,password)
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+        return self.id
 
     def __repr__(self):
-        return f'User {self.username}'
-
+        return f'User {self.username}::{self.id}'
 
 class Blog(db.Model):
     __tablename__ = 'blogs'
@@ -66,6 +70,4 @@ class Comment(db.Model):
         db.session.add(self)
         db.session.commit()
         return self.id
-
-
         
