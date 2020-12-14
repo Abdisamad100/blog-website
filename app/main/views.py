@@ -33,7 +33,7 @@ def new_blog():
 
         title='New blog'
 
-        new_pitch.save_pitch()
+        new_blog.save_blog()
 
         return redirect(url_for('main.index'))
 
