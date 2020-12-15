@@ -1,7 +1,7 @@
 from flask_login import login_required
 from flask import render_template,request,redirect,url_for,abort
 from . import main
-from ..models import User
+from ..models import User,Blog
 from .. import db,photos
 from datetime import datetime
 from ..requests import get_quote
@@ -89,7 +89,7 @@ def addpost():
         content = form.content.data
 
         new_blog = Blog(title=title,
-                        content=content, user=current_user)
+                        content=content, user_id=current_user.id)
 
         new_blog.save_blog()
         return redirect(url_for('main.index'))
