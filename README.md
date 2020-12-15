@@ -60,3 +60,18 @@ The blog doesn't meet all the user's stories/needs.
 
 # Author 
 Abdisamad Mohamed
+
+# License
+MIT License
+
+Copyright (c) 2020 Abdisamad Mohamed
+
+
+
+
+
+
+
+
+
+
