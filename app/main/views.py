@@ -103,6 +103,7 @@ def addpost():
 @login_required
 def new_comment(id):
     form = CommentForm()
+    
     blog = Blog.query.filter_by(id=id).first()
 
     if form.validate_on_submit():
