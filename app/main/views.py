@@ -89,7 +89,7 @@ def addpost():
         content = form.content.data
 
         new_blog = Blog(title=title,
-                        content=content, user_id=current_user.id)
+                        content=content, user=current_user)
 
         new_blog.save_blog()
         return redirect(url_for('main.index'))
