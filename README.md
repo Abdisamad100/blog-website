@@ -1,8 +1,8 @@
 # Title
-Blog-web
+Blog-website
 
 # Description
-Blog-Web is a personal blogging website where you can create and share your opinions and other users can read and comment on them. It also has random quotes that inspire the users. 
+Blog-Website is a personal blogging website where you can create and share your opinions and other users can read and comment on them. It also has random quotes that inspire the users. 
 
 # Features
 As a user of the web application you will be able to:
@@ -24,7 +24,7 @@ Cloning
 In your terminal:
 
   $ git clone https://github.com/abdisamad100/blog-web.git
-  $ cd 1_Minute_Pitch
+  $ cd blog-website
 Running the Application
 Install virtual environment using $ python3.6 -m venv --without-pip virtual
 
