@@ -54,3 +54,10 @@ HTML
 Bootstrap
 
 
+# Known Bugs
+The blog doesn't meet all the user's stories/needs.
+
+
+
+
+
