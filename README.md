@@ -23,7 +23,7 @@ pip
 Cloning
 In your terminal:
 
-  $ git clone https://github.com/abdisamad100/blog-web.git
+  $ git clone https://github.com/abdisamad100/blog-website.git
   $ cd blog-website
 Running the Application
 Install virtual environment using $ python3.6 -m venv --without-pip virtual
@@ -31,4 +31,18 @@ Install virtual environment using $ python3.6 -m venv --without-pip virtual
 Activate virtual environment using $ source virtual/bin/activate
 
 Download pip in our environment using $ curl https://bootstrap.pypa.io/get-pip.py | python
+Create a start.sh file in the root of the folder and add the following code:
 
+  export MAIL_USERNAME=<your-email-address>
+  export MAIL_PASSWORD=<your-email-password>
+  export SECRET_KEY=<your-secret-key>
+Edit the configuration instance in manage.py by commenting on production instance and uncommenting development instance
+
+To run the application, in your terminal:
+
+  $ chmod a+x start.sh
+  $ ./start.sh
+Testing the Application
+To run the tests for the class file:
+
+  $ python3.6 manage.py server
